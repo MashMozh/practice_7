@@ -1,0 +1,36 @@
+# Инициализация переменных
+previous_temperature = None  # Предыдущее значение температуры
+decrease_count = 0  # Счетчик уменьшений температуры
+
+print("Введите температуру (или 0 для завершения):")
+
+while True:
+    # Ввод температуры
+    temperature_input = input()
+    
+    # Преобразуем ввод в число
+    try:
+        temperature = float(temperature_input)
+    except ValueError:
+        print("Пожалуйста, введите корректное число или 0 для завершения.")
+        continue
+
+    # Проверка на завершение ввода
+    if temperature == 0:
+        break
+
+    # Проверка на допустимый диапазон температуры
+    if temperature < 37.4 or temperature > 37.8:
+        print("Температура вне допустимого диапазона. Пожалуйста, введите значение от 37.4 до 37.8.")
+        continue
+
+    # Если предыдущее значение температуры задано, проверяем уменьшение
+    if previous_temperature is not None:
+        if temperature < previous_temperature:
+            decrease_count += 1  # Увеличиваем счетчик, если температура уменьшилась
+
+    # Обновляем предыдущее значение температуры
+    previous_temperature = temperature
+
+# Выводим результат
+print("Количество раз, когда температура уменьшалась:", decrease_count)
