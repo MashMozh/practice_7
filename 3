@@ -1,1 +1,30 @@
-это пиздец
+import math
+
+def is_perfect_square(num):
+    if num < 0:
+        return False
+    root = math.isqrt(num)  # Находим целочисленный корень
+    return root * root == num  # Проверяем, является ли квадрат корня равным числу
+
+while True:
+    # Предлагаем пользователю ввести число
+    user_input = input("Введите число (или 'exit' для выхода): ")
+    
+    # Проверка на выход
+    if user_input.lower() == 'exit':
+        print("Выход из программы.")
+        break
+    
+    # Пробуем преобразовать ввод в целое число
+    try:
+        number = int(user_input)
+    except ValueError:
+        print("Пожалуйста, введите корректное целое число.")
+        continue
+    
+    # Проверяем, является ли число полным квадратом
+    if is_perfect_square(number):
+        print(f"{number} является полным квадратом.")
+        break  # Выходим из цикла, если число полное квадрат
+    else:
+        print(f"{number} не является полным квадратом. Попробуйте снова.")
