@@ -1,17 +1,8 @@
-previous_temperature = None
-decrease_count = 0
-
-while True:
-    temperature = float(input("Введите температуру (или 0 для завершения): "))
-    
-    # Проверка на завершение ввода
-    if temperature == 0:
-        break
-    if 37.4 <= temperature <= 37.8:
-        if previous_temperature is not None:
-            if temperature < previous_temperature:
-                decrease_count += 1
-        previous_temperature = temperature
-    else:
-        print("Температура вне допустимого диапазона.")
-print("Количество раз, когда температура уменьшалась:", decrease_count)
+number = float(input())
+k = 0
+while number > 0:
+    number_2 = float(input())
+    if number_2 < number:
+        k+=1
+    number = number_2
+print(k-1)
