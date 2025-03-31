@@ -1,6 +1,7 @@
-N,K,R=map(int, input().split())
-x=N+(N/100)*K
-count=0
-while x<R:
-    count+=1
-print(count)
+N, K, R = map(int, input().split())
+day = 0
+current_length = N
+while current_length < R:
+    day += 1
+    current_length += current_length * (K / 100) 
+print(day)
