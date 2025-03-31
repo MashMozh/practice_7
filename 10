@@ -1,26 +1,17 @@
-# Инициализация переменных
 previous_temperature = None
 decrease_count = 0
 
 while True:
-    # Вводим значение температуры
     temperature = float(input("Введите температуру (или 0 для завершения): "))
     
     # Проверка на завершение ввода
     if temperature == 0:
         break
-    
-    # Проверка на допустимый диапазон температуры
     if 37.4 <= temperature <= 37.8:
-        # Если это не первое значение, сравниваем с предыдущим
         if previous_temperature is not None:
             if temperature < previous_temperature:
                 decrease_count += 1
-        
-        # Обновляем предыдущее значение температуры
         previous_temperature = temperature
     else:
         print("Температура вне допустимого диапазона. Пожалуйста, введите значение от 37.4 до 37.8.")
-
-# Выводим количество уменьшений температуры
 print("Количество раз, когда температура уменьшалась:", decrease_count)
